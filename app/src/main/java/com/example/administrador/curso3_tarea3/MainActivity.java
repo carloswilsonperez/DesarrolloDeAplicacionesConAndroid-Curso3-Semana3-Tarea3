@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,6 +25,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.miToolBar);
         setSupportActionBar(toolbar);
+
+
+
+        rvMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+
+        // Instacia el linearLayoutManager que sirve para manejar la forma en que se ve la lista
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        //Le decimos que el RecyclerView se comporte como un LinearLayoutManager y adquiera todas sus propiedades
+        rvMascotas.setLayoutManager(llm);
+        // Inicializamos la lista de contactos
+        inicializarListaMascotas();
+        // Inicializamos el adaptador
+        inicializaAdaptador();
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,5 +73,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Inicializa el adaptador
+    public void inicializaAdaptador(){
+        adaptador = new MascotaAdaptador(mascotas, this);
+        rvMascotas.setAdapter(adaptador);
+
+    }
+
+    // Cargo las mascotas a mostrar
+    public void inicializarListaMascotas(){
+        mascotas = new ArrayList<Mascota>();
+        mascotas.add(new Mascota("Pulgarcito", "2", R.drawable.perro00, R.color.fondo_perro00));
+        mascotas.add(new Mascota("Atila", "5", R.drawable.perro01, R.color.fondo_perro01));
+        mascotas.add(new Mascota("Toby", "3", R.drawable.perro02, R.color.fondo_perro02));
+        mascotas.add(new Mascota("Peñarol", "1", R.drawable.perro03, R.color.fondo_perro03));
+        mascotas.add(new Mascota("Yaman", "4", R.drawable.perro04, R.color.fondo_perro04));
+        mascotas.add(new Mascota("Paco", "2", R.drawable.perro05, R.color.fondo_perro05));
     }
 }
