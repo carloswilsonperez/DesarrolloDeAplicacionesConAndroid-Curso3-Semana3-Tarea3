@@ -7,12 +7,12 @@ package com.example.administrador.curso3_tarea3;
 public class Mascota {
 
     private String nombre;
-    private String numLinkes;
+    private int numLinkes;
     private int foto;
     private int colorFondo;
 
     //Contructor
-    public Mascota (String nombre, String numLinkes, int foto, int colorFondo){
+    public Mascota (String nombre, int numLinkes, int foto, int colorFondo){
         this.nombre = nombre;
         this.numLinkes = numLinkes;
         this.foto = foto;
@@ -28,11 +28,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public String getNumLinkes() {
+    public int getNumLinkes() {
         return numLinkes;
     }
 
-    public void setNumLinkes(String numLinkes) {
+    public void setNumLinkes(int numLinkes) {
         this.numLinkes = numLinkes;
     }
 

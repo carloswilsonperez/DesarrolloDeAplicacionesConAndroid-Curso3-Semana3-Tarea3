@@ -1,5 +1,6 @@
 package com.example.administrador.curso3_tarea3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
-    private RecyclerView rvMascotas;
+    private RecyclerView listaMascotas;
     public MascotaAdaptador adaptador;
 
     @Override
@@ -26,21 +27,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.miToolBar);
         setSupportActionBar(toolbar);
 
-
-
-        rvMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 
         // Instacia el linearLayoutManager que sirve para manejar la forma en que se ve la lista
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         //Le decimos que el RecyclerView se comporte como un LinearLayoutManager y adquiera todas sus propiedades
-        rvMascotas.setLayoutManager(llm);
+        listaMascotas.setLayoutManager(llm);
         // Inicializamos la lista de contactos
         inicializarListaMascotas();
         // Inicializamos el adaptador
         inicializaAdaptador();
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -69,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.menu_favoritas) {
+            Intent intent = new Intent(this, Activity2.class);
+            startActivity(intent);
             return true;
         }
 
@@ -78,18 +78,18 @@ public class MainActivity extends AppCompatActivity {
     // Inicializa el adaptador
     public void inicializaAdaptador(){
         adaptador = new MascotaAdaptador(mascotas, this);
-        rvMascotas.setAdapter(adaptador);
+        listaMascotas.setAdapter(adaptador);
 
     }
 
     // Cargo las mascotas a mostrar
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Pulgarcito", "2", R.drawable.perro00, R.color.fondo_perro00));
-        mascotas.add(new Mascota("Atila", "5", R.drawable.perro01, R.color.fondo_perro01));
-        mascotas.add(new Mascota("Toby", "3", R.drawable.perro02, R.color.fondo_perro02));
-        mascotas.add(new Mascota("Peñarol", "1", R.drawable.perro03, R.color.fondo_perro03));
-        mascotas.add(new Mascota("Yaman", "4", R.drawable.perro04, R.color.fondo_perro04));
-        mascotas.add(new Mascota("Paco", "2", R.drawable.perro05, R.color.fondo_perro05));
+        mascotas.add(new Mascota("Pulgarcito", 2, R.drawable.perro00, R.color.fondo_perro00));
+        mascotas.add(new Mascota("Atila", 5, R.drawable.perro01, R.color.fondo_perro01));
+        mascotas.add(new Mascota("Toby", 3, R.drawable.perro02, R.color.fondo_perro02));
+        mascotas.add(new Mascota("Peñarol", 3, R.drawable.perro03, R.color.fondo_perro03));
+        mascotas.add(new Mascota("Yaman", 4, R.drawable.perro04, R.color.fondo_perro04));
+        mascotas.add(new Mascota("Paco", 2, R.drawable.perro05, R.color.fondo_perro05));
     }
 }

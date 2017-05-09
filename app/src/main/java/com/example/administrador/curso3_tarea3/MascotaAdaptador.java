@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     ArrayList<Mascota> mascotas;
     Activity activity;
+    int likes;
 
     // Constructor
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
@@ -36,11 +38,27 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     // Se setean los datos de la clase MascotaViewHolder con los datos de la lista recibida
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolder, int position){
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position){
         final Mascota mascota = mascotas.get(position); //Obtiene todos los datos de la mascota en la posición position
-        mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());// Seteo el view con la foto recibida del ArrayList
-        //mascotaViewHolder.tvNumLikes.setText(mascota.getNumLinkes());// Seteo el view con el nombre recibido del ArrayList
-        mascotaViewHolder.tvNombre.setText(mascota.getNombre());
+        mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());// Seteo el cardView con la foto recibida del ArrayList
+        mascotaViewHolder.tvNumLikes.setText(Integer.toString(mascota.getNumLinkes()));// Seteo el Número de likes del cardView
+        mascotaViewHolder.tvNombre.setText(mascota.getNombre()); // Seteo el cardView con la foto recibida del ArrayList
+
+        mascotaViewHolder.btnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if ( likes == 0 ) {
+
+                    likes = (mascota.getNumLinkes()+1);
+                }else {
+                    likes ++;
+                }
+
+                mascotaViewHolder.tvNumLikes.setText(Integer.toString(likes));
+                Toast.makeText(activity, "Has dado me gusta en " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

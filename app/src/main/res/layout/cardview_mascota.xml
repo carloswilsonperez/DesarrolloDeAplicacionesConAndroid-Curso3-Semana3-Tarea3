@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvMascota"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -50,7 +51,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/hueso_like"/>
+                    app:srcCompat="@drawable/hueso_like"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/tvNombre"
@@ -84,7 +86,7 @@
                     app:layout_constraintRight_toLeftOf="@+id/imgHuesoAmarillo"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                     />
+                    tools:ignore="RtlHardcoded" />
 
                 <ImageView
                     android:id="@+id/imgHuesoAmarillo"
@@ -95,7 +97,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/hueso_amarillo" />
+                    app:srcCompat="@drawable/hueso_amarillo"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
 
 
 
