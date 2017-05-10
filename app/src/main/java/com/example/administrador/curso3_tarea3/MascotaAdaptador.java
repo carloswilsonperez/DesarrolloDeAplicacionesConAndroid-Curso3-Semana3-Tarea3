@@ -2,11 +2,13 @@ package com.example.administrador.curso3_tarea3;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     ArrayList<Mascota> mascotas;
     Activity activity;
     int likes;
+    /*Log de errores y pruebas*/
+    private final String LOGTAG = "Logs !!!!!!";
 
     // Constructor
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
@@ -43,6 +47,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());// Seteo el cardView con la foto recibida del ArrayList
         mascotaViewHolder.tvNumLikes.setText(Integer.toString(mascota.getNumLinkes()));// Seteo el Número de likes del cardView
         mascotaViewHolder.tvNombre.setText(mascota.getNombre()); // Seteo el cardView con la foto recibida del ArrayList
+        mascotaViewHolder.llCardView.setBackgroundColor(mascota.getColorFondo());
+        Log.i(LOGTAG, "El color de fondo de  " +mascota.getNombre()+" es " + mascota.getColorFondo());
 
         mascotaViewHolder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +79,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         private ImageButton btnLike;
         private TextView tvNombre;
         private TextView tvNumLikes;
-        private ImageView imgHuesoAmarillo;
+        //agregado
+        private LinearLayout llCardView;
 
         // Constructor
         public MascotaViewHolder(View itemView){
@@ -83,6 +90,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             this.btnLike    = (ImageButton) itemView.findViewById(R.id.btnLike);
             this.tvNombre   = (TextView) itemView.findViewById(R.id.tvNombre);
             this.tvNumLikes = (TextView) itemView.findViewById(R.id.tvNumLikes);
+            // Agregado
+            this.llCardView = (LinearLayout) itemView.findViewById(R.id.llCardView);
         }
 
     }
