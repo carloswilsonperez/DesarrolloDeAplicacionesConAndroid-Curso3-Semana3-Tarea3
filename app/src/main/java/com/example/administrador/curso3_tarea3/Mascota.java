@@ -1,5 +1,7 @@
 package com.example.administrador.curso3_tarea3;
 
+import android.content.res.Resources;
+
 /**
  * Created by administrador on 08/05/17.
  */
@@ -10,6 +12,7 @@ public class Mascota {
     private int numLinkes;
     private int foto;
     private int colorFondo;
+
 
     //Contructor
     public Mascota (String nombre, int numLinkes, int foto, int colorFondo){

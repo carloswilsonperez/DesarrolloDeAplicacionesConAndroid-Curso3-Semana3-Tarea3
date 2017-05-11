@@ -1,6 +1,7 @@
 package com.example.administrador.curso3_tarea3;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
     public MascotaAdaptador adaptador;
-    /**/
+    /*pruebas*/
+    //public Resources res = getResources();
     private final String LOGTAG = "Logs !!!!!!";
 
     @Override
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicializamos el adaptador
         inicializaAdaptador();
 
-        Log.i(LOGTAG, "Mensaje de información");
+        //String color = res.getString(R.color.fondo_perro00);
+        Log.i(LOGTAG, "Mensaje de información con un color ");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,17 +84,16 @@ public class MainActivity extends AppCompatActivity {
     public void inicializaAdaptador(){
         adaptador = new MascotaAdaptador(mascotas, this);
         listaMascotas.setAdapter(adaptador);
-
     }
 
     // Cargo las mascotas a mostrar
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
         mascotas.add(new Mascota("Pulgarcito", 2, R.drawable.perro00, R.color.fondo_perro00));
-        mascotas.add(new Mascota("Atila", 5, R.drawable.perro01, R.color.fondo_perro01));
+        mascotas.add(new Mascota("Yaman", 5, R.drawable.perro01, R.color.fondo_perro01));
         mascotas.add(new Mascota("Toby", 3, R.drawable.perro02, R.color.fondo_perro02));
         mascotas.add(new Mascota("Peñarol", 3, R.drawable.perro03, R.color.fondo_perro03));
-        mascotas.add(new Mascota("Yaman", 4, R.drawable.perro04, R.color.fondo_perro04));
+        mascotas.add(new Mascota("Fausto", 4, R.drawable.perro04, R.color.fondo_perro04));
         mascotas.add(new Mascota("Paco", 2, R.drawable.perro05, R.color.fondo_perro05));
     }
 }

@@ -69,10 +69,10 @@ public class Activity2 extends AppCompatActivity {
     //********** Cargo las mascotas a mostrar *****************
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Pulgarcito", 2, R.drawable.perro00, R.color.fondo_perro00));
-        mascotas.add(new Mascota("Atila", 5, R.drawable.perro01, R.color.fondo_perro01));
+        mascotas.add(new Mascota("Yaman", 5, R.drawable.perro01, R.color.fondo_perro01));
+        mascotas.add(new Mascota("Fausto", 4, R.drawable.perro04, R.color.fondo_perro04));
         mascotas.add(new Mascota("Toby", 3, R.drawable.perro02, R.color.fondo_perro02));
         mascotas.add(new Mascota("Peñarol", 3, R.drawable.perro03, R.color.fondo_perro03));
-        mascotas.add(new Mascota("Yaman", 4, R.drawable.perro04, R.color.fondo_perro04));
+        mascotas.add(new Mascota("Pulgarcito", 2, R.drawable.perro00, R.color.fondo_perro00));
     }
 }

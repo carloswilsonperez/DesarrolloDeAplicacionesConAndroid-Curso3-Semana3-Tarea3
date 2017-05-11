@@ -1,6 +1,9 @@
 package com.example.administrador.curso3_tarea3;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +25,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     ArrayList<Mascota> mascotas;
     Activity activity;
+    private Resources res;
     int likes;
     /*Log de errores y pruebas*/
     private final String LOGTAG = "Logs !!!!!!";
@@ -47,8 +51,9 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());// Seteo el cardView con la foto recibida del ArrayList
         mascotaViewHolder.tvNumLikes.setText(Integer.toString(mascota.getNumLinkes()));// Seteo el Número de likes del cardView
         mascotaViewHolder.tvNombre.setText(mascota.getNombre()); // Seteo el cardView con la foto recibida del ArrayList
-        mascotaViewHolder.llCardView.setBackgroundColor(mascota.getColorFondo());
-        Log.i(LOGTAG, "El color de fondo de  " +mascota.getNombre()+" es " + mascota.getColorFondo());
+        mascotaViewHolder.llCardView.setBackgroundResource(mascota.getColorFondo()); // Establece el color de fondo
+
+        Log.i(LOGTAG, "El color de fondo de  " + mascota.getNombre() + " es " + mascota.getColorFondo());
 
         mascotaViewHolder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
