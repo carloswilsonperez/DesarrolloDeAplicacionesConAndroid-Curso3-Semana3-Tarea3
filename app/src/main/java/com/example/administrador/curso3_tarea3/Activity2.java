@@ -23,6 +23,7 @@ public class Activity2 extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.miToolBar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

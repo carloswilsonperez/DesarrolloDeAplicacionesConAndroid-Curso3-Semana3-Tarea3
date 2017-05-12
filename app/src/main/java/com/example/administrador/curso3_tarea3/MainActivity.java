@@ -21,16 +21,15 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
     public MascotaAdaptador adaptador;
-    /*pruebas*/
-    //public Resources res = getResources();
-    private final String LOGTAG = "Logs !!!!!!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // **** ToolBar ******************
         Toolbar toolbar = (Toolbar) findViewById(R.id.miToolBar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false); // Oculta el titulo del ToolBar
 
         listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 
@@ -45,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         // Inicializamos el adaptador
         inicializaAdaptador();
 
-        //String color = res.getString(R.color.fondo_perro00);
-        Log.i(LOGTAG, "Mensaje de información con un color ");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         mascotas.add(new Mascota("Toby", 3, R.drawable.perro02, R.color.fondo_perro02));
         mascotas.add(new Mascota("Peñarol", 3, R.drawable.perro03, R.color.fondo_perro03));
         mascotas.add(new Mascota("Fausto", 4, R.drawable.perro04, R.color.fondo_perro04));
-        mascotas.add(new Mascota("Paco", 2, R.drawable.perro05, R.color.fondo_perro05));
+        mascotas.add(new Mascota("Rafa", 2, R.drawable.perro05, R.color.fondo_perro05));
+        mascotas.add(new Mascota("Duke", 2, R.drawable.perro06, R.color.fondo_perro06));
+        mascotas.add(new Mascota("Spayck", 2, R.drawable.perro07, R.color.fondo_perro07));
+        mascotas.add(new Mascota("Paco", 5, R.drawable.perro08, R.color.fondo_perro08));
     }
 }

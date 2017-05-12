@@ -25,10 +25,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     ArrayList<Mascota> mascotas;
     Activity activity;
-    private Resources res;
     int likes;
-    /*Log de errores y pruebas*/
-    private final String LOGTAG = "Logs !!!!!!";
+
 
     // Constructor
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
@@ -53,7 +51,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.tvNombre.setText(mascota.getNombre()); // Seteo el cardView con la foto recibida del ArrayList
         mascotaViewHolder.llCardView.setBackgroundResource(mascota.getColorFondo()); // Establece el color de fondo
 
-        Log.i(LOGTAG, "El color de fondo de  " + mascota.getNombre() + " es " + mascota.getColorFondo());
 
         mascotaViewHolder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +64,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                 }
 
                 mascotaViewHolder.tvNumLikes.setText(Integer.toString(likes));
-                Toast.makeText(activity, "Has dado me gusta en " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(activity, "Has dado me gusta en " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
             }
         });
     }
